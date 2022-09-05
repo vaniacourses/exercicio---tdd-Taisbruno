@@ -19,7 +19,13 @@ public class Processador {
 	}
 	
 	public boolean verificaFatura(Fatura fatura) {
-		return true;
+        for (Boleto boleto: boletos) {
+            if (boleto.getPagamento().getFatura().getDataFatura().equals(fatura.getDataFatura()) && boleto.getPagamento().getFatura().getValorTotal() <= 0) {
+                return true;
+            }
+           
+        }
+        return true;
     }
 	
 	public ArrayList<Boleto> getBoletos() {
