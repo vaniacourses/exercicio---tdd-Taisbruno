@@ -2,6 +2,10 @@ package Pagamento;
 
 import Fatura.Fatura;
 
+/**
+ * Classe responsável por representar um pagamento.
+ */
+
 public class Pagamento {
     private double valorPagamento;
     private String tipoPagamento;
@@ -18,7 +22,7 @@ public class Pagamento {
     public double getValorPagamento() {
         return this.valorPagamento;
     }
-    
+
     public String getTipoPagamento() {
         return this.tipoPagamento;
     }
@@ -30,5 +34,5 @@ public class Pagamento {
     public Fatura getFatura() {
         return this.fatura;
     }
-}
 
+}

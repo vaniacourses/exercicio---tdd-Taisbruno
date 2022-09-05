@@ -2,6 +2,10 @@ package Boleto;
 
 import Pagamento.Pagamento;
 
+/**
+ * Classe responsável por representar um boleto.
+ */
+
 public class Boleto {
     private int codigo;
     private double valorPago;

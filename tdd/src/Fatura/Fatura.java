@@ -1,5 +1,9 @@
 package Fatura;
 
+/**
+ * Classe responsável por representar uma fatura.
+ */
+
 public class Fatura {
     private String dataFatura;
     private double valorTotal;
@@ -28,4 +32,3 @@ public class Fatura {
     }
 
 }
-
