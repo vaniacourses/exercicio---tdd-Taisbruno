@@ -18,6 +18,7 @@ public class Processador {
 	}
 	
 	public boolean verificaFatura(Fatura fatura) {
+		return true;
     }
 	
 	public ArrayList<Boleto> getBoletos() {
