@@ -3,6 +3,7 @@ package Processador;
 import java.util.ArrayList;
 
 import Boleto.Boleto;
+import Fatura.Fatura;
 
 public class Processador {
 	private ArrayList<Boleto> boletos;
@@ -15,6 +16,9 @@ public class Processador {
 		return boleto;
 		
 	}
+	
+	public boolean verificaFatura(Fatura fatura) {
+    }
 	
 	public ArrayList<Boleto> getBoletos() {
         return this.boletos;
