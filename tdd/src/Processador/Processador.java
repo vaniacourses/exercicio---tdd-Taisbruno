@@ -11,8 +11,8 @@ public class Processador {
 		boletos = new ArrayList<>();
 	}
 
-	public String pagarFatura(Boleto boleto) {
-		return "boleto";
+	public Boleto pagarFatura(Boleto boleto) {
+		return boleto;
 		
 	}
 	

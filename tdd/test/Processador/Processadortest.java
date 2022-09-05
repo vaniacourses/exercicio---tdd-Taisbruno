@@ -21,7 +21,7 @@ public class Processadortest {
 	@Test
 	public void testpagarFatura() {
 		Boleto boleto = new Boleto(163950, 200.00, "08/08/2022");
-		Assertions.assertEquals("boleto", processador.pagarFatura(boleto));
+		Assertions.assertEquals(boleto, processador.pagarFatura(boleto));
 	}
 
 }
