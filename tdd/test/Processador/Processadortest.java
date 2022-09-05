@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import Boleto.Boleto;
 import Fatura.Fatura;
+import Pagamento.Pagamento;
 
 public class Processadortest {
 	Processador processador;
@@ -21,14 +22,17 @@ public class Processadortest {
 	
 	@Test
 	public void testpagarFatura() {
-		Boleto boleto = new Boleto(163950, 200.00, "08/08/2022");
-		Assertions.assertEquals(boleto, processador.pagarFatura(boleto));
+		Fatura fatura = new Fatura("10/08/2022", 320.00, "Julio da Silva Rodriguez");
+		Pagamento pagamento = new Pagamento(200.00, "BOLETO", "08/08/2022", fatura);
+		Boleto boleto = new Boleto(163950, 200.00, "08/08/2022", pagamento);
+		Assertions.assertEquals(pagamento.getFatura(), processador.pagarFatura(pagamento, boleto, fatura));
 	}
 	
 	@Test
 	public void testverificaFatura() {
 		Fatura fatura = new Fatura("10/08/2022", 320.00, "Julio da Silva Rodriguez");
-		Boleto boleto = new Boleto(163950, 200.00, "08/08/2022");
+		Pagamento pagamento = new Pagamento(200.00, "BOLETO", "08/08/2022", fatura);
+		Boleto boleto = new Boleto(163950, 200.00, "08/08/2022", pagamento);
 		boolean taPaga = processador.verificaFatura(fatura);
 		Assertions.assertTrue(taPaga);
 		

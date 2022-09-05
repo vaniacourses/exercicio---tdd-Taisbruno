@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Boleto.Boleto;
 import Fatura.Fatura;
+import Pagamento.Pagamento;
 
 public class Processador {
 	private ArrayList<Boleto> boletos;
@@ -12,9 +13,9 @@ public class Processador {
 		boletos = new ArrayList<>();
 	}
 
-	public Boleto pagarFatura(Boleto boleto) {
-		return boleto;
-		
+	public Fatura pagarFatura(Pagamento pagamento, Boleto boleto, Fatura fatura) {
+        this.boletos.add(boleto);
+        return pagamento.getFatura();
 	}
 	
 	public boolean verificaFatura(Fatura fatura) {
