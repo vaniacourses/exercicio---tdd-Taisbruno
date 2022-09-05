@@ -15,7 +15,7 @@ public class Processadortest {
 	Processador processador;
 
 	@BeforeEach
-	public void incializaProcessador() {
+	public void inicializaProcessador() {
 		processador = new Processador();
 
 	}
@@ -25,8 +25,17 @@ public class Processadortest {
 		Fatura fatura = new Fatura("10/08/2022", 320.00, "Julio da Silva Rodriguez");
 		Pagamento pagamento = new Pagamento(200.00, "BOLETO", "08/08/2022", fatura);
 		Boleto boleto = new Boleto(163950, 200.00, "08/08/2022", pagamento);
-		Assertions.assertEquals(pagamento.getFatura(), processador.pagarFatura(pagamento, boleto, fatura));
+		double valorAnteriorFatura = fatura.getValorTotal();
+		processador.pagarFatura(pagamento, boleto, fatura);
+		for(Boleto boleto2 : processador.getBoletos()){
+			if(boleto2.equals(boleto)){
+				Assertions.assertEquals(boleto, boleto2);
+				Assertions.assertNotEquals(valorAnteriorFatura, boleto2.getPagamento().getFatura().getValorTotal(), "O valor da fatura foi decrementado. " + boleto2.getValorPago());
+			}
+		}
+
 	}
+
 	
 	@Test
 	public void testverificaFatura() {

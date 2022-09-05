@@ -13,19 +13,19 @@ public class Processador {
 		boletos = new ArrayList<>();
 	}
 
-	public Fatura pagarFatura(Pagamento pagamento, Boleto boleto, Fatura fatura) {
+	public void pagarFatura(Pagamento pagamento, Boleto boleto, Fatura fatura) {
         this.boletos.add(boleto);
-        return pagamento.getFatura();
-	}
+        fatura.setValorTotal(boleto.getValorPago());
+    }
 	
 	public boolean verificaFatura(Fatura fatura) {
         for (Boleto boleto: boletos) {
-            if (boleto.getPagamento().getFatura().getDataFatura().equals(fatura.getDataFatura()) && boleto.getPagamento().getFatura().getValorTotal() <= 0) {
+            if (boleto.getPagamento().getFatura().getValorTotal() <= 0) {
                 return true;
             }
            
         }
-        return true;
+        return false;
     }
 	
 	public ArrayList<Boleto> getBoletos() {
